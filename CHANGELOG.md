@@ -97,3 +97,9 @@ All notable changes to this project will be documented in this file.
 [v3.1]: https://github.com/gliderlabs/logspout/compare/v3...v3.1
 [v3]: https://github.com/gliderlabs/logspout/compare/v2...v3
 [v2]: https://github.com/gliderlabs/logspout/compare/v1...v2
+
+### Chandged due to broken logspout. go build flag parameters were changed and it is causing the deployment to fail
+Updated Dockerfile to change the alpine version from 3.3 to 3.6
+Changed build.sh to include latest syntaxt supported by go 
+previous syntax: go build -ldflags "-X main.Version $1" -o /bin/logspout
+New Syntax: go build -ldflags "-X main.Version=$1" -o /bin/logspout 
